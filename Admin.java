@@ -4,9 +4,9 @@ import java.util.List;
 class Admin extends Customer{
     int adminId;
     int pass;
-    
-    
-    
+    public Admin(){
+
+    }
     public Admin(int id,int pass){
         this.adminId=id;
         this.pass=pass;

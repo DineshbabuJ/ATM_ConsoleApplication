@@ -1,10 +1,17 @@
 import java.util.*;
 
+import javax.sound.midi.Soundbank;
+
 class Main{
     static List<Customer> cList= new ArrayList<>();
     static List<String> history=new ArrayList<>();
     static Admin a1=new Admin(9999,9999);
     static double atmamt=100000;
+    static List<Admin> aList=new ArrayList<>();
+    static Bank b1=new Bank();
+    static List<String> bList=new ArrayList<>();
+    
+    
     
     static{
         
@@ -12,10 +19,10 @@ class Main{
         Customer o2=new Customer("dharani",2222,1111,20000,"SBI");
         Customer o3=new Customer("aakash",3333,1111,30000,"SBI");
         Customer o4=new Customer("harish",4444,1111,40000,"SBI");
-        Customer o5=new Customer("harshit",5555,1111,50000,"SBI");
-        Customer o6=new Customer("jeeva",6666,1111,60000,"SBI");
-        Customer o7=new Customer("gowtham",7777,1111,60000,"SBI");
-        Customer o8=new Customer("gokul",8888,1111,60000,"SBI");
+        Customer o5=new Customer("harshit",5555,1111,50000,"ICICI");
+        Customer o6=new Customer("jeeva",6666,1111,60000,"HDFC");
+        Customer o7=new Customer("gowtham",7777,1111,60000,"ICICI");
+        Customer o8=new Customer("gokul",8888,1111,60000,"HDFC");
         cList.add(o1);
         cList.add(o2);
         cList.add(o3);
@@ -24,6 +31,10 @@ class Main{
         cList.add(o6);
         cList.add(o7);
         cList.add(o8);
+        aList.add(a1);
+        bList.add("SBI");
+        bList.add("ICICI");
+        bList.add("HDFC");
         
         
         
@@ -117,6 +128,12 @@ class Main{
                 System.out.println("---------------------------------------");
             }
             else if(option==3){
+                System.out.println("ENTER ADMIN PASS");
+                int ap=sc.nextInt();
+                if(ap!=a1.pass){
+                    System.out.println("INValid password");
+                    continue;
+                }
                 System.out.println("---------------------------------------");
                 System.out.println("List of Options");
                 System.out.println("1.Check ATM Balance");
@@ -140,6 +157,14 @@ class Main{
                 }
             }
             else if(option==4){
+                System.out.println("Options for Bank:");
+                
+                
+                System.out.println("1.no of users in each Bank");
+                int choice=sc.nextInt();
+                if(choice==1){
+                    b1.customersInEachBank();
+                }
 
             }
                 
