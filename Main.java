@@ -2,18 +2,20 @@ import java.util.*;
 
 class Main{
     static List<Customer> cList= new ArrayList<>();
+    static List<String> history=new ArrayList<>();
     static Admin a1=new Admin(9999,9999);
     static double atmamt=100000;
+    
     static{
         
-        Customer o1=new Customer("dinesh",1111,1111,10000);
-        Customer o2=new Customer("dharani",2222,1111,20000);
-        Customer o3=new Customer("aakash",3333,1111,30000);
-        Customer o4=new Customer("harish",4444,1111,40000);
-        Customer o5=new Customer("harshit",5555,1111,50000);
-        Customer o6=new Customer("jeeva",6666,1111,60000);
-        Customer o7=new Customer("gowtham",7777,1111,60000);
-        Customer o8=new Customer("gokul",8888,1111,60000);
+        Customer o1=new Customer("dinesh",1111,1111,10000,"SBI");
+        Customer o2=new Customer("dharani",2222,1111,20000,"SBI");
+        Customer o3=new Customer("aakash",3333,1111,30000,"SBI");
+        Customer o4=new Customer("harish",4444,1111,40000,"SBI");
+        Customer o5=new Customer("harshit",5555,1111,50000,"SBI");
+        Customer o6=new Customer("jeeva",6666,1111,60000,"SBI");
+        Customer o7=new Customer("gowtham",7777,1111,60000,"SBI");
+        Customer o8=new Customer("gokul",8888,1111,60000,"SBI");
         cList.add(o1);
         cList.add(o2);
         cList.add(o3);
@@ -21,6 +23,8 @@ class Main{
         cList.add(o5);
         cList.add(o6);
         cList.add(o7);
+        cList.add(o8);
+        
         
         
     }
@@ -51,8 +55,10 @@ class Main{
                 int pin=sc.nextInt();
                 System.out.println("enter initial amount to be deposited");
                 double balance=sc.nextDouble(); 
+                System.out.println("enter Which bank user");
+                String bank=sc.next(); 
                 
-                Customer ob1=new Customer(name,id,pin,balance);
+                Customer ob1=new Customer(name,id,pin,balance,bank);
                 
 
                 cList.add(ob1);
@@ -115,6 +121,7 @@ class Main{
                 System.out.println("List of Options");
                 System.out.println("1.Check ATM Balance");
                 System.out.println("2.Add Atm balance");
+                System.out.println("3.Check previous transactions");
                 int choice=sc.nextInt();
                 switch (choice) {
                     case 1:
@@ -125,6 +132,10 @@ class Main{
                         System.out.println("ENter amount to refill");
                         int amt=sc.nextInt();
                         a1.putMoney(amt);
+                        break;
+                    
+                    case 3:
+                        a1.last5transactions();
                         break;
                 }
             }

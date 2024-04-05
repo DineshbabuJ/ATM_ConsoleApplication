@@ -1,6 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Admin extends Customer{
     int adminId;
     int pass;
+    
+    
     
     public Admin(int id,int pass){
         this.adminId=id;
@@ -12,6 +17,14 @@ class Admin extends Customer{
     }
     void checkAtmBalance(){
         System.out.println("ATM balance:"+atmamt);
+    }
+
+    void last5transactions(){
+        
+        System.out.println(history.size());
+        for(int i=history.size()-1;i>=0;i--){
+            System.out.println(history.get(i));
+        }
     }
 
 

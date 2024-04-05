@@ -1,17 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Customer extends Main{
     String name;
     int accountno;
     int pin;
+    String bank;
     double balance;
     public Customer(){
         
     }
     
-    public Customer(String name, int id, int pin,double balance){
+    
+    public Customer(String name, int id, int pin,double balance,String bank){
         this.name=name;
         this.accountno=id;
         this.pin=pin;
         this.balance=balance;
+        this.bank=bank;
     }
 
     void withdraw(double wamt){
@@ -22,6 +28,8 @@ class Customer extends Main{
             this.balance-=wamt;
             atmamt-=wamt;
             System.out.println("withdrawn successfully");
+            this.history.add(this.name+" withdraws Rs"+wamt);
+            
         }
         else{
             System.out.println("Insufficient fund");
@@ -32,6 +40,7 @@ class Customer extends Main{
         this.balance+=damt;
         atmamt+=damt;
         System.out.println("deposited successfully");
+        this.history.add(this.name+" deposited Rs"+damt);
     }
 
     void checkbalance(){
